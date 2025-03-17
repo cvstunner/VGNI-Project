@@ -21,6 +21,7 @@ workflows:
           chmod +x ./gradlew
       - name: Clean project
         script: |
+          ./gradlew wrapper --gradle-version 8.11.1
           ./gradlew clean
       - name: Build Debug APK
         script: |
