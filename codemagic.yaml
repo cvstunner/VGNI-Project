@@ -16,6 +16,9 @@ workflows:
           include: true
           source: true
     scripts:
+      - name: Set gradlew permissions
+        script: |
+          chmod +x ./gradlew
       - name: Clean project
         script: |
           ./gradlew clean
