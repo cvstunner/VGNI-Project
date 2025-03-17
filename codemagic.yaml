@@ -6,7 +6,7 @@ workflows:
       vars:
         PACKAGE_NAME: "com.cvstunner.vgni"
         ANDROID_APP_PATH: "app/build/outputs/apk/debug/app-debug.apk"
-      java: 11
+      java: 17
     triggering:
       events:
         - push
