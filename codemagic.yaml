@@ -19,9 +19,11 @@ workflows:
       - name: Set gradlew permissions
         script: |
           chmod +x ./gradlew
-      - name: Clean project
+      - name: Generate Gradle wrapper
         script: |
           ./gradlew wrapper --gradle-version 8.11.1
+      - name: Clean project
+        script: |
           ./gradlew clean
       - name: Build Debug APK
         script: |
