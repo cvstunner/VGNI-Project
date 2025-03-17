@@ -16,17 +16,17 @@ workflows:
           include: true
           source: true
     scripts:
-      - name: Download Gradle wrapper
+      - name: Download and set up Gradle
         script: |
-          mkdir -p gradle/wrapper
-          curl -o gradle/wrapper/gradle-wrapper.jar https://services.gradle.org/distributions/gradle-8.11.1-all.zip
-          chmod +x ./gradlew
+          wget https://services.gradle.org/distributions/gradle-8.11.1-bin.zip
+          unzip gradle-8.11.1-bin.zip
+          export PATH=$PATH:`pwd`/gradle-8.11.1/bin
       - name: Clean project
         script: |
-          ./gradlew clean
+          gradle clean
       - name: Build Debug APK
         script: |
-          ./gradlew assembleDebug
+          gradle assembleDebug
     artifacts:
       - $ANDROID_APP_PATH
     publishing:
