@@ -16,12 +16,11 @@ workflows:
           include: true
           source: true
     scripts:
-      - name: Set gradlew permissions
+      - name: Download Gradle wrapper
         script: |
+          mkdir -p gradle/wrapper
+          curl -o gradle/wrapper/gradle-wrapper.jar https://services.gradle.org/distributions/gradle-8.11.1-all.zip
           chmod +x ./gradlew
-      - name: Generate Gradle wrapper
-        script: |
-          ./gradlew wrapper --gradle-version 8.11.1
       - name: Clean project
         script: |
           ./gradlew clean
